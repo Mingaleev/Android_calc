@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="150dp"
         android:text="@string/textInTextView"
+        android:textAlignment="textEnd"
         android:textSize="@dimen/textSizeBtn"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
