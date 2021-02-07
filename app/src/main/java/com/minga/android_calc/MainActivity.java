@@ -81,27 +81,39 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.button_0:
-                calc.entering(0);
+                calc.entering("0");
                 break;
-            case R.id.button_1: calc.entering(1);
+            case R.id.button_1: calc.entering("1");
                 break;
-            case R.id.button_2: calc.entering(2);
+            case R.id.button_2: calc.entering("2");
                 break;
-            case R.id.button_3: calc.entering(3);
+            case R.id.button_3: calc.entering("3");
                 break;
-            case R.id.button_4: calc.entering(4);
+            case R.id.button_4: calc.entering("4");
                 break;
-            case R.id.button_5: calc.entering(5);
+            case R.id.button_5: calc.entering("5");
                 break;
-            case R.id.button_6: calc.entering(6);
+            case R.id.button_6: calc.entering("6");
                 break;
-            case R.id.button_7: calc.entering(7);
+            case R.id.button_7: calc.entering("7");
                 break;
-            case R.id.button_8: calc.entering(8);
+            case R.id.button_8: calc.entering("8");
                 break;
-            case R.id.button_9: calc.entering(9);
+            case R.id.button_9: calc.entering("9");
+                break;
+            case R.id.button_point: calc.entering(".");
+                break;
+            case R.id.button_result: calc.result();
                 break;
             case R.id.button_clean: calc.cleanTV();
+                break;
+            case R.id.button_sum: calc.sum();
+                break;
+            case R.id.button_minus: calc.minus();
+                break;
+            case R.id.button_multiplication: calc.multiplication();
+                break;
+            case R.id.button_div: calc.div();
                 break;
         }
     }
