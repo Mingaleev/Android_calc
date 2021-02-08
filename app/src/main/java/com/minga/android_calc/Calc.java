@@ -14,28 +14,38 @@ public class Calc {
         this.tv_calc = tv_calc;
     }
 
+    /**
+     * Ввод данных с View
+     * @param num
+     */
     public void entering(String num) {
-        if (tv_calc.getText().equals("0")) {
-            tv_calc.setText(num);
+        String valNow = tv_calc.getText().toString();
+        if (valNow.equals("0")) {
+            if (num.equals(".")) {
+                tv_calc.setText(String.format(Locale.getDefault(), valNow + "%s", num));
+            } else {
+                tv_calc.setText(num);
+            }
         } else {
             if (process) {
                 tv_calc.setText(num);
                 process = false;
-            } else {
-                tv_calc.setText(String.format(Locale.getDefault(), tv_calc.getText().toString() + "%s", num));
-            }
+            } else if (valNow.contains(".") && num.equals(".")) {
 
+            } else {
+                tv_calc.setText(String.format(Locale.getDefault(), valNow + "%s", num));
+            }
         }
     }
 
-    public void cleanTV() {
+    public void cleanTV() {//очистка данных
         tv_calc.setText("0");
         operation = 0;
         process = false;
     }
 
     public void sum() {
-        if (operation != 0) {
+        if (operation != 0 && !process) {
             result();
         }
         operation = 1;
@@ -44,7 +54,7 @@ public class Calc {
     }
 
     public void minus() {
-        if (operation != 0) {
+        if (operation != 0 && !process) {
             result();
         }
         operation = 2;
@@ -53,7 +63,7 @@ public class Calc {
     }
 
     public void multiplication() {
-        if (operation != 0) {
+        if (operation != 0 && !process) {
             result();
         }
         operation = 3;
@@ -62,7 +72,7 @@ public class Calc {
     }
 
     public void div() {
-        if (operation != 0) {
+        if (operation != 0 && !process) {
             result();
         }
         operation = 4;
@@ -81,7 +91,7 @@ public class Calc {
                 tv_calc.setText(floatOrInt(val_one - val_two));
                 break;
             case 3:
-                tv_calc.setText(floatOrInt( val_one * val_two));
+                tv_calc.setText(floatOrInt(val_one * val_two));
                 break;
             case 4:
                 tv_calc.setText(floatOrInt(val_one / val_two));
@@ -91,9 +101,9 @@ public class Calc {
         operation = 0;
     }
 
-    private String floatOrInt (float sum) {
+    private String floatOrInt(float sum) {
         int intSum = (int) sum;
-        if (sum%intSum != 0){
+        if (sum % intSum != 0) {
             return String.valueOf(sum);
         } else {
             return String.valueOf(intSum);
