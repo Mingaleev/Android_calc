@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button button_8;
     Button button_9;
     TextView tv_calc;
+    String textNow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         initButton();
         tv_calc = findViewById(R.id.tv_calc);
-        calc = new Calc(tv_calc);
+        calc = new Calc();
     }
 
     private void initButton() {
@@ -79,41 +80,41 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
+        textNow = tv_calc.getText().toString();
         switch (view.getId()){
-            case R.id.button_0:
-                calc.entering("0");
+            case R.id.button_0: tv_calc.setText(calc.entering("0", textNow));
                 break;
-            case R.id.button_1: calc.entering("1");
+            case R.id.button_1: tv_calc.setText(calc.entering("1", textNow));
                 break;
-            case R.id.button_2: calc.entering("2");
+            case R.id.button_2: tv_calc.setText(calc.entering("2", textNow));
                 break;
-            case R.id.button_3: calc.entering("3");
+            case R.id.button_3: tv_calc.setText(calc.entering("3", textNow));
                 break;
-            case R.id.button_4: calc.entering("4");
+            case R.id.button_4: tv_calc.setText(calc.entering("4", textNow));
                 break;
-            case R.id.button_5: calc.entering("5");
+            case R.id.button_5: tv_calc.setText(calc.entering("5", textNow));
                 break;
-            case R.id.button_6: calc.entering("6");
+            case R.id.button_6: tv_calc.setText(calc.entering("6", textNow));
                 break;
-            case R.id.button_7: calc.entering("7");
+            case R.id.button_7: tv_calc.setText(calc.entering("7", textNow));
                 break;
-            case R.id.button_8: calc.entering("8");
+            case R.id.button_8: tv_calc.setText(calc.entering("8", textNow));
                 break;
-            case R.id.button_9: calc.entering("9");
+            case R.id.button_9: tv_calc.setText(calc.entering("9", textNow));
                 break;
-            case R.id.button_point: calc.entering(".");
+            case R.id.button_point: tv_calc.setText(calc.entering(".", textNow));
                 break;
-            case R.id.button_result: calc.result();
+            case R.id.button_result: tv_calc.setText(calc.result(textNow));
                 break;
-            case R.id.button_clean: calc.cleanTV();
+            case R.id.button_clean: tv_calc.setText(calc.cleanTV());
                 break;
-            case R.id.button_sum: calc.sum();
+            case R.id.button_sum: tv_calc.setText(calc.sum(textNow));
                 break;
-            case R.id.button_minus: calc.minus();
+            case R.id.button_minus: tv_calc.setText(calc.minus(textNow));
                 break;
-            case R.id.button_multiplication: calc.multiplication();
+            case R.id.button_multiplication: tv_calc.setText(calc.multiplication(textNow));
                 break;
-            case R.id.button_div: calc.div();
+            case R.id.button_div: tv_calc.setText(calc.div(textNow));
                 break;
         }
     }

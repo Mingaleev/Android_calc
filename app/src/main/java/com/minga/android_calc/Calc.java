@@ -1,104 +1,105 @@
 package com.minga.android_calc;
 
-import android.widget.TextView;
-
 import java.util.Locale;
 
 public class Calc {
-    private TextView tv_calc;
+//    private TextView tv_calc;
     private float val_one;
     private boolean process = false;
     private int operation = 0; //0 - еще не назначена, 1- сложение, 2 - вычитание, 3 - умножение, 4- деление
 
-    public Calc(TextView tv_calc) {
-        this.tv_calc = tv_calc;
-    }
+//    public Calc(TextView tv_calc) {
+//        this.tv_calc = tv_calc;
+//    }
 
     /**
      * Ввод данных с View
+     *
      * @param num
      */
-    public void entering(String num) {
-        String valNow = tv_calc.getText().toString();
-        if (valNow.equals("0")) {
+    public String entering(String num, String textNow) {
+        if (textNow.equals("0")) {
             if (num.equals(".")) {
-                tv_calc.setText(String.format(Locale.getDefault(), valNow + "%s", num));
+                return String.format(Locale.getDefault(), textNow + "%s", num);
             } else {
-                tv_calc.setText(num);
+                return num;
             }
         } else {
             if (process) {
-                tv_calc.setText(num);
                 process = false;
-            } else if (valNow.contains(".") && num.equals(".")) {
-
+                return num;
+            } else if (textNow.contains(".") && num.equals(".")) {
+                return textNow;
             } else {
-                tv_calc.setText(String.format(Locale.getDefault(), valNow + "%s", num));
+                return String.format(Locale.getDefault(), textNow + "%s", num);
             }
         }
     }
 
-    public void cleanTV() {//очистка данных
-        tv_calc.setText("0");
+    public String cleanTV() {//очистка данных
         operation = 0;
         process = false;
+        return "0";
     }
 
-    public void sum() {
+    public String sum(String textNow) {
         if (operation != 0 && !process) {
-            result();
+            textNow = result(textNow);
         }
         operation = 1;
-        val_one = Float.parseFloat(tv_calc.getText().toString());
+        val_one = Float.parseFloat(textNow);
         process = true;
+        return textNow;
     }
 
-    public void minus() {
+    public String  minus(String textNow) {
         if (operation != 0 && !process) {
-            result();
+            textNow = result(textNow);
         }
         operation = 2;
-        val_one = Float.parseFloat(tv_calc.getText().toString());
+        val_one = Float.parseFloat(textNow);
         process = true;
+        return textNow;
     }
 
-    public void multiplication() {
+    public String multiplication(String textNow) {
         if (operation != 0 && !process) {
-            result();
+            textNow = result(textNow);
         }
         operation = 3;
-        val_one = Float.parseFloat(tv_calc.getText().toString());
+        val_one = Float.parseFloat(textNow);
         process = true;
+        return textNow;
     }
 
-    public void div() {
+    public String div(String textNow) {
         if (operation != 0 && !process) {
-            result();
+            textNow = result(textNow);
         }
         operation = 4;
-        val_one = Float.parseFloat(tv_calc.getText().toString());
+        val_one = Float.parseFloat(textNow);
         process = true;
+        return textNow;
     }
 
-    public void result() {
-        float val_two = Float.parseFloat(tv_calc.getText().toString());
-
+    public String result(String textNow) {
+        float val_two = Float.parseFloat(textNow);
+        process = true;
         switch (operation) {
             case 1:
-                tv_calc.setText(floatOrInt(val_one + val_two));
-                break;
+                operation = 0;
+                return floatOrInt(val_one + val_two);
             case 2:
-                tv_calc.setText(floatOrInt(val_one - val_two));
-                break;
+                operation = 0;
+                return floatOrInt(val_one - val_two);
             case 3:
-                tv_calc.setText(floatOrInt(val_one * val_two));
-                break;
+                operation = 0;
+                return floatOrInt(val_one * val_two);
             case 4:
-                tv_calc.setText(floatOrInt(val_one / val_two));
-                break;
+                operation = 0;
+                return floatOrInt(val_one / val_two);
         }
-        process = true;
-        operation = 0;
+        return textNow;
     }
 
     private String floatOrInt(float sum) {
