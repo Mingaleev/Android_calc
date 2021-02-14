@@ -18,4 +18,5 @@
     <string name="button_multiplication">*</string>
     <string name="button_point">.</string>
     <string name="textInTextView">0</string>
+    <string name="action_settings">Настройки</string>
 </resources>

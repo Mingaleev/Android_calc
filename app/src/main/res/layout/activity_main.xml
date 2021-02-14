@@ -145,10 +145,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/button_sum"
-        app:layout_constraintWidth_percent="0.2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/button_9"
-        app:layout_constraintTop_toBottomOf="@+id/button_4" />
+        app:layout_constraintTop_toBottomOf="@+id/button_4"
+        app:layout_constraintWidth_percent="0.2" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_0"
@@ -164,8 +164,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/button_point"
-        app:layout_constraintStart_toStartOf="@+id/button_9"
         app:layout_constraintEnd_toStartOf="@+id/button_result"
+        app:layout_constraintStart_toStartOf="@+id/button_9"
         app:layout_constraintTop_toBottomOf="@+id/button_7" />
 
     <com.google.android.material.button.MaterialButton
@@ -173,9 +173,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/button_result"
-        app:layout_constraintWidth_percent="0.2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/button_point"
-        app:layout_constraintTop_toBottomOf="@+id/button_7" />
+        app:layout_constraintTop_toBottomOf="@+id/button_7"
+        app:layout_constraintWidth_percent="0.2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
