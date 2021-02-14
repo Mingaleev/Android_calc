@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="textSizeBtn">40sp</dimen>
+    <dimen name="textSizeBtnLand">20sp</dimen>
+    <dimen name="marginTop_TV">150dp</dimen>
+    <dimen name="marginTop_BTN">50dp</dimen>
+    <dimen name="marginBTN">2dp</dimen>
 </resources>

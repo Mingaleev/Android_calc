@@ -17,5 +17,5 @@
     <string name="button_div">/</string>
     <string name="button_multiplication">*</string>
     <string name="button_point">.</string>
-    <string name="textInTextView">Тут будут цифры</string>
+    <string name="textInTextView">0</string>
 </resources>

@@ -7,4 +7,14 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="MT" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <item name="colorPrimary">#D6D6D6</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textSize">@dimen/textSizeBtn</item>
+        <item name="android:textColor">@color/design_default_color_primary_dark</item>
+        <item name="android:layout_marginStart">@dimen/marginBTN</item>
+        <item name="android:layout_marginEnd">@dimen/marginBTN</item>
+    </style>
+
 </resources>
