@@ -18,4 +18,7 @@
     <string name="button_multiplication">*</string>
     <string name="button_point">.</string>
     <string name="textInTextView">0</string>
+    <string name="action_settings">Настройки</string>
+    <string name="action_url">На страницу</string>
+    <string name="tv_settings_style">Темная/Светлая</string>
 </resources>

@@ -1,10 +1,16 @@
 package com.minga.android_calc;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -37,6 +43,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         initButton();
         tv_calc = findViewById(R.id.tv_calc);
         calc = new Calc();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.action_settings){
+            Intent intent = new Intent(this, Settings_calc.class);
+            startActivity(intent);
+        } else if (item.getItemId() == R.id.action_url) {
+            Intent intent = new Intent();
+            intent.setAction(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse("https://geekbrains.ru/"));
+            startActivity(intent);
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void initButton() {
