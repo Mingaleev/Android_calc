@@ -3,14 +3,10 @@ package com.minga.android_calc;
 import java.util.Locale;
 
 public class Calc {
-//    private TextView tv_calc;
     private float val_one;
     private boolean process = false;
     private int operation = 0; //0 - еще не назначена, 1- сложение, 2 - вычитание, 3 - умножение, 4- деление
 
-//    public Calc(TextView tv_calc) {
-//        this.tv_calc = tv_calc;
-//    }
 
     /**
      * Ввод данных с View
