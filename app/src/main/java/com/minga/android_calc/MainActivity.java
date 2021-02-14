@@ -1,6 +1,7 @@
 package com.minga.android_calc;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -55,6 +56,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.action_settings){
             Intent intent = new Intent(this, Settings_calc.class);
+            startActivity(intent);
+        } else if (item.getItemId() == R.id.action_url) {
+            Intent intent = new Intent();
+            intent.setAction(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse("https://geekbrains.ru/"));
             startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
